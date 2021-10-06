@@ -21,10 +21,10 @@ public class Scene {
 
         Geezer theGeezer = Geezer.getTheGeezer();
 
-        SteganographyClassLoader loader = new SteganographyClassLoader(
-                new URL("https://cdn.njuics.cn/example.BubbleSorter.png"));
+        // 用图片生成类加载器，然后生成排序
+        SteganographyClassLoader loader = new SteganographyClassLoader(new URL("file:example.ShellSorter2.png"));
 
-        Class c = loader.loadClass("example.BubbleSorter");
+        Class c = loader.loadClass("example.ShellSorter");
 
         Sorter sorter = (Sorter) c.newInstance();
 

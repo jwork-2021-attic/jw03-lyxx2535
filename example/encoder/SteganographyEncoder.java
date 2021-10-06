@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class SteganographyEncoder {
     private final BufferedImage bi;
     private int bitsFromColor;
-    private int mask;
+    private int mask;// 掩码
 
     public SteganographyEncoder(BufferedImage bufferedImage) {
         this(bufferedImage, 2);
@@ -71,7 +71,7 @@ public class SteganographyEncoder {
     }
 
     public BufferedImage encodeFile(File file) throws IOException {
-        byte[] bytes = IOUtils.toByteArray(new FileInputStream(file));
+        byte[] bytes = IOUtils.toByteArray(new FileInputStream(file));// 将二进制码化成bytes
         byte[] sizeBytes = intToByteArray(bytes.length);
 
         char[] nameChars = file.getName().toCharArray();
@@ -180,8 +180,6 @@ public class SteganographyEncoder {
         int curPix = 0;
         int charOffset = 0;
 
-        // TODO: Optimize this code to decode only needed number of bytes and not the
-        // whole byte array
         for (int i = 0; i < maxNoOfBytes; i++) {
             byte oneByte = 0;
             while (charOffset < 8) {

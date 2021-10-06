@@ -25,13 +25,14 @@ public class SteganographyFactory {
         SteganographyEncoder steganographyEncoder = new SteganographyEncoder(image);
 
         BufferedImage encodedImage = steganographyEncoder.encodeFile(new File(classSource.replace("java", "class")));
-        ImageIO.write(encodedImage, "png", new File(className+".png"));
+        ImageIO.write(encodedImage, "png", new File(className + ".png"));
 
     }
 
     public static void main(String[] args) throws IOException {
 
-        SteganographyFactory.getSteganography("example/BubbleSorter.java","example/resources/bubble.jpeg");
+        // 生成隐身术图
+        SteganographyFactory.getSteganography("example/QuickSorter.java", "example/resources/bubble.jpeg");
 
     }
 
